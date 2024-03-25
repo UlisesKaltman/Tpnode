@@ -1,12 +1,15 @@
-import fs from 'fs';
+import fs from'fs'; 
+//const fs = require('fs');
 
-const ARCHIVO_ENTRADA = "./archivo-entrada.txt";
-//const ARCHIVO_SALIDA = "./archivo-salida.txt";
+const original = "./archivo-entrada.txt";
+const nuevo = "./archivo-Nuevo.txt";
+
 console.clear();
-copiar(ARCHIVO_ENTRADA);
+copiar(original, nuevo);
 
-
-function copiar(ARCHIVO_ENTRADA)
-{
-    fs.rename()
+function copiar(original, nuevo) {
+    fs.copyFile(original, nuevo, (err) => {
+        if (err) throw err;
+        console.log(`El archivo ${original} se ha copiado como ${nuevo}`);
+    });
 }
